@@ -1,0 +1,352 @@
+// тк мы к ним обращаемся везде ниже
+@import "fonts.scss";
+@import "utils/reset";
+@import "utils/vars";
+@import "vendors/vendors";
+
+.unselectable {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+$index: calc(1vw + 1vh);
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  line-height: $mainLineHeight;
+  font-size: $mainFontSize;
+  color: $mainFontColor;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  font-family: $mainFont;
+  font-size: $mainFontSize;
+  font-weight: $mainFontWeight;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  background-color: $brand-purple;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.hidden {
+    overflow: hidden;
+    touch-action: none;
+    -ms-touch-action: none;
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+*::selection {
+  background: #fff;
+  color: #000;
+}
+
+.container {
+  width: 100%;
+  flex: 0 0 auto;
+  position: relative;
+  max-width: $desktopWidth;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @media screen and (max-width: $smDesktopWidth) {
+    // max-width: $tableWidth;
+  }
+
+  @media screen and (max-width: $tableWidth) {
+    max-width: 98%;
+  }
+
+  @media screen and (max-width: $phoneWidth) {
+    max-width: 100%;
+  }
+
+  @media screen and (max-width: $smPhoneWidth) {
+    padding: 0 10px;
+  }
+
+  &.small {
+    max-width: 936px;
+  }
+}
+
+@import "./common.scss";
+
+.header {
+  z-index: 10;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+
+  .header__wrapper {
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      background: #ffffff;
+      opacity: 0.1;
+      height: 1px;
+      bottom: 0;
+      left: 30px;
+      right: 30px;
+    }
+  }
+}
+.company-logo {
+  cursor: pointer;
+  width: 190px;
+  height: 52px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+.menu-btn {
+  cursor: pointer;
+  color: #fff;
+  gap: 8px;
+  display: flex;
+  align-items: center;
+}
+.menu-ball {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: $brand-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  span {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: $brand-purple;
+  }
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.page-slider,
+.page-slider__wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.page-screen {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  font-size: 50px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.page-slider {
+  background: url(../img/arnament.svg) no-repeat center center;
+  background-attachment: fixed;
+}
+
+.page-slider_pagination {
+  overflow: hidden;
+  height: 132px;
+  position: absolute;
+  color: #fff;
+  right: 30px;
+  top: 110px;
+  .slider-pag {
+    cursor: pointer;
+    line-height: 100%;
+    opacity: 0.3;
+    gap: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    font-size: 10px;
+    &:after {
+      display: block;
+      content: "";
+      width: 16px;
+      height: 2px;
+      background: #ffffff;
+      border-radius: 2px;
+    }
+    &.slide-active {
+      opacity: 1;
+      font-size: 14px;
+      .title {
+        display: block;
+      }
+      &:after {
+        width: 32px;
+        height: 4px;
+      }
+    }
+    .title {
+      display: none;
+    }
+  }
+}
+
+.page-screen:nth-of-type(1) {
+  .page-screen__content {
+    padding: 0 188px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  .image-wrapper,
+  .text-block {
+    width: 50%;
+  }
+  .image-wrapper {
+    margin-top: auto;
+    height: 80%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: bottom;
+    }
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  &.swiper-slide-active {
+    .text-block {
+      opacity: 1;
+      transform: translate(0%, 0%);
+      transition-delay: 0.5s;
+      &:after,
+      &:before {
+        opacity: 1;
+        transition-delay: 1.2s;
+      }
+      &:after {
+        transform: translateY(100%);
+      }
+      &:before {
+        transform: translateY(-100%);
+      }
+      .quote__name {
+        transform: translateX(0%);
+        opacity: 1;
+      }
+    }
+    .image-wrapper {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+  .text-block {
+    transform: translate(20%, 10%);
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    transition-delay: 0s;
+    position: relative;
+    text-align: left;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 140%;
+    .quote__name {
+      width: fit-content;
+      margin-top: 30px;
+      font-size: 48px;
+      line-height: 100%;
+      transform: translateX(30%);
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+      transition-delay: 0.8s;
+    }
+
+    &:before {
+      left: 0;
+      top: -20px;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='134' height='108' viewBox='0 0 134 108' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M11.6625 33.1598L11.6541 33.1744L11.6459 33.1891C5.22317 44.7415 2 56.965 2 69.8314C2 80.7003 4.85575 89.5994 10.7657 96.3103L10.7938 96.3422L10.8232 96.3728C16.9457 102.757 24.3492 106 32.9333 106C40.4835 106 47.0024 103.282 52.3834 97.9052C57.7644 92.5281 60.4849 86.0133 60.4849 78.4674C60.4849 71.2482 58.1931 65.1092 53.5505 60.1971C48.9098 55.2871 43.1215 52.8123 36.3151 52.8123C34.8693 52.8123 33.6028 52.86 32.5293 52.9621C33.8644 47.9979 36.616 42.7737 40.8856 37.2846C46.2738 30.6802 51.9861 25.5954 58.0103 21.9835L60.4925 20.4953L58.2227 18.6997L40.1863 4.43146L39.0072 3.49872L37.7836 4.37213C27.0284 12.0487 18.3176 21.65 11.6625 33.1598ZM81.1777 33.1598L81.1693 33.1744L81.1611 33.1891C74.7383 44.7415 71.5152 56.965 71.5152 69.8314C71.5152 80.7003 74.3709 89.5994 80.2809 96.3103L80.309 96.3422L80.3384 96.3728C86.4609 102.757 93.8643 106 102.448 106C109.999 106 116.518 103.282 121.899 97.9052C127.28 92.5281 130 86.0133 130 78.4674C130 71.2482 127.708 65.1092 123.066 60.1971C118.425 55.2871 112.637 52.8123 105.83 52.8123C104.384 52.8123 103.118 52.86 102.044 52.9621C103.38 47.9979 106.131 42.7737 110.401 37.2846C115.789 30.6802 121.501 25.5954 127.525 21.9835L130.008 20.4953L127.738 18.6997L109.701 4.43146L108.522 3.49872L107.299 4.37213C96.5435 12.0487 87.8328 21.65 81.1777 33.1598Z' stroke='%23FAB748' stroke-width='4'/%3e%3c/svg%3e ");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      transform: translateY(-140%);
+    }
+    &:after {
+      right: 0;
+      bottom: -20px;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='134' height='108' viewBox='0 0 134 108' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M122.337 74.8402L122.346 74.8256L122.354 74.8109C128.777 63.2585 132 51.035 132 38.1686C132 27.2997 129.144 18.4006 123.234 11.6897L123.206 11.6578L123.177 11.6272C117.054 5.24316 109.651 2 101.067 2C93.5165 2 86.9976 4.71782 81.6166 10.0948C76.2356 15.4719 73.5151 21.9867 73.5151 29.5326C73.5151 36.7518 75.8069 42.8908 80.4495 47.8029C85.0902 52.7129 90.8785 55.1877 97.6849 55.1877C99.1307 55.1877 100.397 55.14 101.471 55.0379C100.136 60.0021 97.384 65.2263 93.1144 70.7154C87.7262 77.3198 82.0139 82.4046 75.9897 86.0165L73.5075 87.5047L75.7773 89.3003L93.8137 103.569L94.9928 104.501L96.2164 103.628C106.972 95.9513 115.682 86.35 122.337 74.8402ZM52.8223 74.8402L52.8307 74.8256L52.8389 74.8109C59.2617 63.2585 62.4848 51.035 62.4848 38.1686C62.4848 27.2997 59.6291 18.4006 53.7191 11.6897L53.691 11.6578L53.6616 11.6272C47.5391 5.24316 40.1357 2 31.5515 2C24.0014 2 17.4825 4.71782 12.1015 10.0948C6.72041 15.4719 4 21.9867 4 29.5326C4 36.7518 6.29174 42.8908 10.9344 47.8029C15.5751 52.7129 21.3634 55.1877 28.1697 55.1877C29.6155 55.1877 30.882 55.14 31.9556 55.0379C30.6204 60.0021 27.8689 65.2263 23.5993 70.7154C18.2111 77.3198 12.4988 82.4046 6.47459 86.0165L3.99236 87.5047L6.26219 89.3003L24.2986 103.569L25.4776 104.501L26.7013 103.628C37.4565 95.9513 46.1672 86.35 52.8223 74.8402Z' stroke='%23FAB748' stroke-width='4'/%3e%3c/svg%3e ");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      transform: translateY(140%);
+    }
+    &:after,
+    &:before {
+      transition-delay: 0s;
+      opacity: 0;
+      position: absolute;
+      content: "";
+      width: 124px;
+      height: 98px;
+      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    }
+  }
+}
