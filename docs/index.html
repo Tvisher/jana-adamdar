@@ -10,7 +10,8 @@
     <script> </script>
 </head>
 
-<body>
+<body class="main-container">
+    <div class="flying-shape"></div>
     <header class="header">
         <div class="header__wrapper">
             <a href="#" class="company-logo">
@@ -29,7 +30,7 @@
 
     <main class="page-slider">
         <div class="page-slider__wrapper">
-            <section class="page-screen" data-title="наш лидер">
+            <section class="page-screen swiper-slide" data-slide="1" data-title="наш лидер">
                 <div class="page-screen__content">
                     <div class="image-wrapper">
                         <img src="img/president.png" alt="">
@@ -42,16 +43,160 @@
                     </div>
                 </div>
             </section>
-            <section class=" page-screen" data-title="дело во мне">2</section>
-            <section class=" page-screen" data-title="Обращение">3</section>
-            <section class=" page-screen" data-title="путь соисполнителя">4</section>
-            <section class=" page-screen" data-title="Знакомство">5</section>
-            <section class=" page-screen" data-title="Конкурс">6</section>
-            <section class=" page-screen" data-title="Активист">7</section>
-            <section class=" page-screen" data-title="Теория">8</section>
-            <section class=" page-screen" data-title="Проект">9</section>
-            <section class=" page-screen" data-title="Спикер">10</section>
-            <section class=" page-screen" data-title="Лидер">11</section>
+            <section class="page-screen swiper-slide" data-slide="2" data-title="дело во мне">
+                <div class="page-screen__content">
+                    <div class="page-slider__descr">Конкурс по поиску 5000<br>
+                        соисполнителей нового справедливого Казахстана</div>
+                    <h1 class="page-screen__title">
+                        Дело <span class="orange-text">во мне</span>
+                    </h1>
+                    <button class="swiper-no-swiping orange-btn">Стать соисполнителем</button>
+                </div>
+            </section>
+            <section class="page-screen swiper-slide" data-slide="3" data-title="Обращение">
+                <div class="page-screen__content">
+                    <h2 class="page-screen__title">Обращение</h2>
+                    <div class="page-screen__video">
+                        <img class="page-screen__video-poster" src="img/video-poster.jpg" alt="">
+                        <div class="play-btn swiper-no-swiping">
+                            <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23.4235 11.1808C25.4257 12.3368 25.4257 15.2268 23.4235 16.3828L5.40345 26.7867C3.40122 27.9426 0.898437 26.4977 0.898438 24.1857L0.898438 3.37794C0.898439 1.06597 3.40122 -0.379017 5.40345 0.776969L23.4235 11.1808Z" fill="white" />
+                            </svg>
+                        </div>
+                    </div>
+                    <button class="white-btn swiper-no-swiping">Текстовая версия</button>
+                    <div class="page-screen__subtitle">Инициаторы<br> движения</div>
+                    <div class="initiators">
+                        <div class="initiator">
+                            <div class="initiator__img">
+                                <img src="img/initiator-1.jpg" alt="">
+                            </div>
+                            <div class="initiator__name">Ásel <span class="orange-text">Badenova</span></div>
+                            <span class="initiator__descr">создатель проекта</span>
+                        </div>
+                        <div class="initiator">
+                            <div class="initiator__img">
+                                <img src="img/initiator-2.jpg" alt="">
+                            </div>
+                            <div class="initiator__name">Mağjan <span class="orange-text">Mädïev</span></div>
+                            <span class="initiator__descr">создатель проекта</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="page-screen swiper-slide" data-slide="4" data-title="путь соисполнителя">
+                <div class="page-screen__content">
+                    <div class="page-screen__img">
+                        <img src="img/path01.svg" alt="">
+                    </div>
+                    <div class="page-screen__title">
+                        путь <span class="orange-text">соисполнителя</span>
+                    </div>
+                </div>
+            </section>
+            <section class="page-screen swiper-slide" data-slide="5" data-title="Знакомство">
+                <div class="page-screen__wrapper">
+                    <div class="page-screen__content">
+                        <div class="step">шаг 1</div>
+                        <div class="page-screen__title">Знакомство</div>
+                        <div class="page-screen__descr">Ты можешь изучить наш сайт и найти ответы на возникшие вопросы или поступить ответственнее — записаться на офлайн-встречу, на которой познакомимся лично, обсудим наш Манифест и избавимся от возможной недосказанности. Решать тебе по какому пути пойти.</div>
+                    </div>
+                    <div class="page-screen__img">
+                        <img src="img/path02.svg" alt="">
+                    </div>
+                </div>
+            </section>
+            <section class="page-screen swiper-slide" data-slide="6" data-title="Конкурс">
+                <div class="page-screen__wrapper">
+                    <div class="page-screen__img">
+                        <img src="img/path03.svg" alt="">
+                    </div>
+                    <div class="page-screen__content">
+                        <div class="step">шаг 2</div>
+                        <div class="page-screen__title">Конкурс</div>
+                        <div class="page-screen__descr">Участвуй в конкурсе, в котором нет проигравших. Расскажи в любой доступной творческой форме, как лично ты понимаешь важнейший для нашего Манифеста тезис Президента.</div>
+                    </div>
+                </div>
+            </section>
+            <section class="page-screen swiper-slide" data-slide="7" data-title="Активист">
+                <div class="page-screen__wrapper">
+                    <div class="page-screen__content">
+                        <div class="step">шаг 3</div>
+                        <div class="page-screen__title">Активист
+                        </div>
+                        <div class="page-screen__descr">Пройди двухдневный тренинг, на котором мы расскажем, как «Новый Казахстан» связан с мышлением, зачем делать проекты и почему без них никуда.</div>
+                    </div>
+                    <div class="page-screen__img">
+                        <img src="img/path04.svg" alt="">
+                    </div>
+                </div>
+            </section>
+            <section class="page-screen swiper-slide" data-slide="8" data-title="Теория">
+                <div class="page-screen__wrapper">
+                    <div class="page-screen__img">
+                        <img src="img/path05.svg" alt="">
+                    </div>
+                    <div class="page-screen__content">
+                        <div class="step">шаг 4</div>
+                        <div class="page-screen__title">Теория</div>
+                        <div class="page-screen__descr">Начни учиться в Кампусе «Новых людей». Наша комплексная программа состоит из 3 связанных образовательных блоков: «Мышление», или ответ на вопрос «Что происходит?»; «Свое дело», или ответ на вопрос «А что в связи с этим делать?»; «Лидерство», или ответ на вопрос «Как делать не одному?»</div>
+                    </div>
+                </div>
+            </section>
+            <section class="page-screen swiper-slide" data-slide="9" data-title="Проект">
+                <div class="page-screen__wrapper">
+                    <div class="page-screen__content">
+                        <div class="step">шаг 5</div>
+                        <div class="page-screen__title">Проект</div>
+                        <div class="page-screen__descr">Подготовь свой проект, который будет решать конкретную проблему «Старого Казахстана». Не переживай, мы подскажем и поможем довести твою идею до готовой к реализации кампании.</div>
+                    </div>
+                    <div class="page-screen__img">
+                        <img src="img/path06.svg" alt="">
+                    </div>
+                </div>
+            </section>
+            <section class="page-screen swiper-slide" data-slide="10" data-title="Спикер">
+                <div class="page-screen__wrapper">
+                    <div class="page-screen__img">
+                        <img src="img/path07.svg" alt="">
+                    </div>
+                    <div class="page-screen__content">
+                        <div class="step">шаг 6</div>
+                        <div class="page-screen__title">Спикер</div>
+                        <div class="page-screen__descr">Вместе с единомышленниками из Движения реализуй свой проект и стань тем, кто сможет приблизить страну к новой реальности, где нет иждивенчества, лени, коррупции, клановости и всего остального, несовместимого с «Новым Казахстаном».</div>
+                    </div>
+                </div>
+            </section>
+            <section class="page-screen swiper-slide" data-slide="11" data-title="Лидер">
+                <div class="page-screen__wrapper">
+                    <div class="page-screen__content">
+                        <div class="step">шаг 7</div>
+                        <div class="page-screen__title">Лидер</div>
+                        <div class="page-screen__descr">Масштабируй вместе с Движением свой проект сначала до города, потом до района и области, а дальше до всей страны. Стань примером для тысяч, войди в 5000 тех, кто способен создать «Новый Казахстан».</div>
+                    </div>
+                    <div class="page-screen__img">
+                        <img src="img/path08.svg" alt="">
+                    </div>
+                </div>
+            </section>
+            <section class="page-screen swiper-slide" data-slide="12" data-title="мы - команда">
+                <div class="page-screen__wrapper">
+                    <div class="page-screen__content">
+                        <div class="page-screen__title">Готов войти в команду<br>
+                            <span class="orange-text">«Новых людей»</span>?
+                        </div>
+                        <div class="page-screen__subtitle">Тогда <span class="orange-text">приступай</span> к конкурсу. </div>
+                        <div class="page-screen__descr">Для удобства конкурс проводится в телеграм-боте. Он введёт тебя в курс дела, объяснит задание и даже вдохновит успешными примерами. В дальнейшем все наше общение будет происходить в этом мессенджере. Поэтому если еще не установил приложение, то уже пора. Возникнут проблемы в процессе? Не переживай и смело вызывай в боте модератора. Мы не бросим тебя в беде. Удачи и добро пожаловать.</div>
+                        <button class="white-btn">
+                            <span class="ico telegram"></span>
+                            Стать соисполнителем
+                        </button>
+                    </div>
+                    <div class="page-screen__img">
+                        <img src="img/qr.svg" alt="">
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
     <div class="page-slider_pagination swiper-slider">

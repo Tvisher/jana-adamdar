@@ -23,6 +23,7 @@ pageScreens.forEach(slide => {
 
 const pageSliderPagination = new Swiper('.page-slider_pagination', {
     modules: [Manipulation],
+    speed: 600,
     spaceBetween: 8,
     slidesPerView: 5,
     centeredSlides: 1,
@@ -46,15 +47,22 @@ const pageSliderPagination = new Swiper('.page-slider_pagination', {
     },
 });
 
-
+const flyingShape = document.querySelector('.flying-shape');
+const translateflyingShape = () => {
+    Object.assign(flyingShape.style, {
+        left: `${Math.random() * 60}%`,
+        top: `${Math.random() * 60}%`,
+    })
+}
 const pageSlider = new Swiper('.page-slider', {
     modules: [Navigation, Pagination, Mousewheel, Keyboard, Parallax, Manipulation, Thumbs, EffectFade],
-    speed: 1200,
+    speed: 800,
     wrapperClass: "page-slider__wrapper",
     slideClass: "page-screen",
+    noSwipingClass: 'swiper-no-swiping',
     // Вертикальный слайдер
     direction: 'vertical',
-    parallax: true,
+    // parallax: true,
     // Колличество слайдев для показа
     slidesPerView: 'auto',
     effect: 'fade',
@@ -81,6 +89,7 @@ const pageSlider = new Swiper('.page-slider', {
     on: {
         init() {
             pageSliderPagination.slides[0].classList.add('slide-active');
+            translateflyingShape();
         },
         slideChange(swiper) {
             pageSliderPagination.slides.forEach(slide => {
@@ -88,6 +97,7 @@ const pageSlider = new Swiper('.page-slider', {
             });
             pageSliderPagination.slides[swiper.realIndex].classList.add('slide-active');
             pageSliderPagination.slideTo(swiper.realIndex);
+            translateflyingShape();
         }
     }
 });
