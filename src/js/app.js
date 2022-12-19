@@ -24,6 +24,7 @@ pageScreens.forEach(slide => {
 const pageSliderPagination = new Swiper('.page-slider_pagination', {
     modules: [Manipulation],
     speed: 600,
+    allowTouchMove: false,
     spaceBetween: 8,
     slidesPerView: 5,
     centeredSlides: 1,
