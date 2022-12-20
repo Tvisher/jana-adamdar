@@ -110,10 +110,19 @@ const pageSlider = new Swiper('.page-slider', {
 //логика работы меню бургер
 document.body.addEventListener('click', (e) => {
     const target = e.target;
-    if (target.closest('[data-burger-menu]')) {
-        target.closest('[data-burger-menu]').classList.toggle('active');
-        document.querySelector('[data-header-menu]').classList.toggle('active');
-        document.body.classList.toggle('hidden');
+    if (target.closest('[data-open-menu]')) {
+        target.closest('[data-open-menu]').classList.toggle('active');
+        document.querySelector('[data-mega-menu]').classList.toggle('show');
+    }
+    if (target.closest('[data-slide-to]')) {
+        e.preventDefault();
+        const dataSlideId = target.closest('[data-slide-to]').getAttribute('data-slide-to');
+        const currentSlide = [...pageSlider.slides].findIndex(slide => slide.getAttribute('data-slide') == dataSlideId);
+        pageSlider.slideTo(currentSlide);
+        setTimeout(() => {
+            document.querySelector('[data-open-menu]')?.classList.remove('active');
+            document.querySelector('[data-mega-menu]')?.classList.remove('show');
+        }, 500);
     }
 });
 
