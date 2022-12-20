@@ -2062,6 +2062,80 @@ button {
   gap: 20px;
 }
 
+.marquee__wrapper {
+  position: fixed;
+  padding: calc(1vw + 1vh) 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  transition: transform 0.8s ease-in-out;
+  background-color: #fff;
+  transform: translateY(130%);
+}
+
+.marquee__wrapper.show {
+  transform: translateY(0%);
+}
+
+.marquee__wrapper.show .marquee-open {
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.marquee__wrapper.half-show {
+  transform: translateY(90%);
+}
+
+.marquee__wrapper.half-show .marquee-open {
+  display: flex;
+}
+
+.marquee__wrapper.no-arrow .marquee-open {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.marquee-open {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%) rotate(0deg);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marquee {
+  color: #462683;
+}
+
+.marquee .js-marquee {
+  display: flex;
+  align-items: center;
+}
+
+.marquee .marquee__item {
+  margin-right: 30px;
+  font-size: calc(0.8 * (1vw + 1vh));
+  display: flex;
+  gap: 16px;
+}
+
+.marquee .tagname {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.marquee .tagdescr {
+  font-weight: 500;
+}
+
 @media screen and (max-width: 768px) {
   .container {
     max-width: 98%;

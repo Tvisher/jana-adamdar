@@ -1046,3 +1046,72 @@ li {
     gap: 20px;
   }
 }
+
+.marquee__wrapper {
+  position: fixed;
+  padding: $index 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  transition: transform 0.8s ease-in-out;
+  background-color: #fff;
+  transform: translateY(130%);
+  &.show {
+    transform: translateY(0%);
+    .marquee-open {
+      transform: translate(-50%, -50%) rotate(180deg);
+    }
+  }
+  &.half-show {
+    transform: translateY(90%);
+    .marquee-open {
+      display: flex;
+    }
+  }
+  &.no-arrow {
+    .marquee-open {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
+.marquee-open {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out,
+    visibility 0.3s ease-in-out;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%) rotate(0deg);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marquee {
+  color: $brand-purple;
+
+  .js-marquee {
+    display: flex;
+    align-items: center;
+  }
+
+  .marquee__item {
+    margin-right: 30px;
+    font-size: calc(0.8 * $index);
+    display: flex;
+    gap: 16px;
+  }
+  .tagname {
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .tagdescr {
+    font-weight: 500;
+  }
+}

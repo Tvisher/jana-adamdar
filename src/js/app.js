@@ -13,12 +13,22 @@ window.addEventListener('load', (e) => {
 });
 
 
+const marquee = document.querySelector('.marquee__wrapper');
+
+$('#marquee').marquee({
+    startVisible: true,
+    duration: 50000,
+    delayBeforeStart: 0,
+    direction: 'left',
+    duplicated: true,
+});
+
+
 let pageScreens = document.querySelectorAll('[data-title]');
 let pageScreensTitles = [];
 pageScreens.forEach(slide => {
     pageScreensTitles.push(slide.dataset.title);
 });
-
 
 
 const pageSliderPagination = new Swiper('.page-slider_pagination', {
@@ -93,6 +103,22 @@ const pageSlider = new Swiper('.page-slider', {
             translateflyingShape();
         },
         slideChange(swiper) {
+            if (swiper.activeIndex == 0) {
+                marquee.classList.remove('show');
+                marquee.classList.remove('half-show');
+            }
+            else if (swiper.activeIndex == 1) {
+                marquee.classList.add('show');
+                marquee.classList.add('no-arrow');
+                marquee.classList.remove('half-show');
+            }
+            else {
+                console.log('show');
+                marquee.classList.remove('show');
+                marquee.classList.remove('no-arrow');
+                marquee.classList.add('half-show');
+            }
+
             pageSliderPagination.slides.forEach(slide => {
                 slide.classList.remove('slide-active');
             });
@@ -115,6 +141,12 @@ document.body.addEventListener('click', (e) => {
     if (target.closest('[data-open-modal]')) {
         const targetid = target.closest('[data-open-modal]').getAttribute('data-open-modal');
         document.querySelector(`[data-modal="${targetid}"]`)?.classList.add('show');
+    }
+
+    if (target.closest('.marquee-open')) {
+        // target.closest('.marquee-open').classList.toggle('show');
+        marquee.classList.toggle('show');
+        marquee.classList.toggle('half-show');
     }
 
     if (target.closest('[data-slide-to]')) {
@@ -145,6 +177,8 @@ document.querySelectorAll('input[type="tel"]').forEach(input => {
         mask: '+{7}(000) 000-00-00'
     });
 });
+
+
 
 
 
