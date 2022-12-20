@@ -104,9 +104,6 @@ const pageSlider = new Swiper('.page-slider', {
 });
 
 
-
-
-
 //логика работы меню бургер
 document.body.addEventListener('click', (e) => {
     const target = e.target;
@@ -114,6 +111,12 @@ document.body.addEventListener('click', (e) => {
         target.closest('[data-open-menu]').classList.toggle('active');
         document.querySelector('[data-mega-menu]').classList.toggle('show');
     }
+
+    if (target.closest('[data-open-modal]')) {
+        const targetid = target.closest('[data-open-modal]').getAttribute('data-open-modal');
+        document.querySelector(`[data-modal="${targetid}"]`)?.classList.add('show');
+    }
+
     if (target.closest('[data-slide-to]')) {
         e.preventDefault();
         const dataSlideId = target.closest('[data-slide-to]').getAttribute('data-slide-to');
@@ -122,9 +125,19 @@ document.body.addEventListener('click', (e) => {
         setTimeout(() => {
             document.querySelector('[data-open-menu]')?.classList.remove('active');
             document.querySelector('[data-mega-menu]')?.classList.remove('show');
-        }, 500);
+        }, 400);
     }
 });
+
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        document.querySelector('[data-open-menu].active')?.classList.remove('active');
+        document.querySelector('[data-mega-menu].show')?.classList.remove('show');
+        document.querySelector('[data-modal].show')?.classList.remove('show');
+    }
+})
+
 
 // Маска на номера телефона
 document.querySelectorAll('input[type="tel"]').forEach(input => {
