@@ -538,6 +538,9 @@ li {
     }
   }
   &.swiper-slide-active {
+    .orange-text {
+      color: $brand-primary;
+    }
     .page-slider__descr {
       opacity: 1;
     }

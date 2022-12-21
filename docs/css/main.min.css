@@ -1491,6 +1491,10 @@ button {
   display: inline;
 }
 
+.page-screen[data-slide="2"].swiper-slide-active .orange-text {
+  color: #fab748;
+}
+
 .page-screen[data-slide="2"].swiper-slide-active .page-slider__descr {
   opacity: 1;
 }
