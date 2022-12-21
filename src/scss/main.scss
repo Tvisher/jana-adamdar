@@ -16,8 +16,59 @@
   -ms-user-select: none;
   /* Internet Explorer/Edge */
   user-select: none;
-  /* Non-prefixed version, currently
-                                  not supported by any browser */
+}
+
+/* Стрелки */
+::-webkit-scrollbar-button:vertical:start:decrement {
+  background: linear-gradient(120deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(240deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(0deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+  background-color: #f6f8f4;
+  display: none;
+}
+
+::-webkit-scrollbar-button:vertical:end:increment {
+  background: linear-gradient(300deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(60deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(180deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+  background-color: #f6f8f4;
+  display: none;
+}
+
+::-webkit-scrollbar-button:horizontal:start:decrement {
+  background: linear-gradient(30deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(150deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(270deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+  background-color: #f6f8f4;
+  display: none;
+}
+
+::-webkit-scrollbar-button:horizontal:end:increment {
+  background: linear-gradient(210deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(330deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(90deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+  background-color: #f6f8f4;
+  display: none;
+}
+
+/* полоса прокрутки (скроллбар) */
+::-webkit-scrollbar {
+  width: 2px; /* ширина для вертикального скролла */
+  height: 2px; /* высота для горизонтального скролла */
+  background-color: rgba(194, 194, 194, 0);
+  border-radius: 2px;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+  // background-color: #17171a;
+  background-color: $brand-primary;
+  border-radius: 9em;
+  // box-shadow: inset 1px 1px 10px #f3faf7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #253861;
 }
 
 $index: calc(1vw + 1vh);
@@ -143,7 +194,7 @@ li {
   height: 100%;
   background-color: $brand-purple;
   width: 100%;
-  z-index: 99;
+  z-index: 100;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -186,7 +237,7 @@ li {
 }
 
 .header {
-  z-index: 100;
+  z-index: 101;
   position: fixed;
   left: 0;
   top: 0;
@@ -256,6 +307,10 @@ li {
   }
 }
 
+.orange-text {
+  color: $brand-primary;
+}
+
 .page-slider,
 .page-slider__wrapper {
   height: 100%;
@@ -320,12 +375,12 @@ li {
     align-items: center;
     justify-content: flex-end;
     position: relative;
-    font-size: 10px;
+    font-size: calc(0.33 * $index);
     &:after {
       display: block;
       content: "";
-      width: 16px;
-      height: 2px;
+      width: calc(0.49 * $index);
+      height: calc(0.07 * $index);
       background: #ffffff;
       border-radius: 2px;
     }
@@ -334,13 +389,13 @@ li {
         display: none;
       }
       opacity: 1;
-      font-size: 14px;
+      font-size: calc(0.49 * $index);
       .title {
         display: block;
       }
       &:after {
-        width: 32px;
-        height: 4px;
+        width: calc(0.99 * $index);
+        height: calc(0.13 * $index);
       }
     }
     .title {
@@ -489,9 +544,7 @@ li {
     .page-screen__title {
       opacity: 1;
     }
-    .orange-text {
-      color: $brand-primary;
-    }
+
     .orange-btn {
       opacity: 1;
       transform: scale(1);
@@ -521,7 +574,7 @@ li {
   justify-content: center;
   gap: 8px;
   padding: calc(0.55 * $index) calc(1.2 * $index);
-  color: #462683;
+  color: $brand-purple;
   background-color: #fff;
   border-radius: 123px;
   font-weight: 700;
@@ -1053,7 +1106,7 @@ li {
   left: 0;
   bottom: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 99;
   transition: transform 0.8s ease-in-out;
   background-color: #fff;
   transform: translateY(130%);
@@ -1113,5 +1166,176 @@ li {
   }
   .tagdescr {
     font-weight: 500;
+  }
+}
+
+.faq {
+  margin: auto;
+  width: 100%;
+  max-width: calc(31 * $index);
+  .page-screen__title {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: calc(3.2 * $index);
+    line-height: 100%;
+    margin-bottom: calc(2 * $index);
+    margin-top: calc(0.66 * $index);
+  }
+}
+
+.faq__item {
+  margin-bottom: 10px;
+  .item__body {
+    display: none;
+  }
+  .faq__item-wrap {
+    background-color: $brand-purple;
+    border: 1px solid #5a3a97;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: calc(0.66 * $index);
+    text-align: left;
+    border: 1px solid #5a3a97;
+    transition: border-color 0.25s ease-in-out,
+      background-color 0.25s ease-in-out;
+    &.open {
+      border-color: $brand-primary;
+      background-color: #5a3a97;
+      .item__head::after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .item__body {
+    font-weight: 400;
+    font-size: calc(0.55 * $index);
+    line-height: 140%;
+    padding: $index;
+    padding-top: 0;
+  }
+  .item__head {
+    padding: $index;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &::after {
+      transition: transform 0.35s ease-in-out;
+      display: block;
+      content: "";
+      width: calc(0.8 * $index);
+      height: calc(0.8 * $index);
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M6.41385 9H17.5858C17.7836 9.00004 17.9769 9.05871 18.1413 9.1686C18.3057 9.27848 18.4339 9.43465 18.5095 9.61734C18.5852 9.80004 18.605 10.0011 18.5664 10.195C18.5279 10.389 18.4327 10.5671 18.2928 10.707L12.7068 16.293C12.5193 16.4805 12.265 16.5858 11.9998 16.5858C11.7347 16.5858 11.4804 16.4805 11.2928 16.293L5.70685 10.707C5.56704 10.5671 5.47183 10.389 5.43327 10.195C5.3947 10.0011 5.4145 9.80004 5.49017 9.61734C5.56584 9.43465 5.69398 9.27848 5.85839 9.1686C6.0228 9.05871 6.2161 9.00004 6.41385 9Z' fill='%23FAB748'/%3e%3c/svg%3e ");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+}
+
+.faq-slide {
+  display: block;
+  padding-top: calc(0.33 * $index);
+  overflow: auto;
+}
+
+.faq__list {
+  padding-bottom: calc(1.8 * $index);
+}
+
+.footer {
+  background: #fab748;
+  padding: $index;
+}
+
+.footer__head {
+  margin-bottom: $index;
+  text-transform: uppercase;
+  text-align: left;
+  color: $brand-purple;
+  display: flex;
+  justify-content: flex-start;
+  gap: calc(2 * $index);
+  .footer__link {
+    color: $brand-purple;
+    font-weight: 700;
+    line-height: 120%;
+    font-size: calc(1.2 * $index);
+  }
+  .footer__descr {
+    font-weight: 500;
+    font-size: calc(0.55 * $index);
+
+    line-height: 140%;
+  }
+}
+
+.footer__body {
+  padding-bottom: 20px;
+  border-bottom: 2px solid $brand-purple;
+  display: flex;
+  justify-content: space-between;
+  gap: $index;
+  .footer__social {
+    align-items: center;
+    display: flex;
+    gap: calc(0.33 * $index);
+    font-weight: 700;
+    font-size: calc(0.66 * $index);
+    text-transform: uppercase;
+  }
+  .link {
+    text-decoration: underline;
+  }
+  .ico {
+    padding: calc(0.33 * $index);
+    width: calc(1.2 * $index);
+    height: calc(1.2 * $index);
+    background-color: $brand-purple;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.footer__bottom {
+  padding-top: calc(0.33 * $index);
+  gap: calc(1.5 * $index);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.privacy {
+  font-weight: 500;
+  font-size: calc(0.55 * $index);
+  line-height: 140%;
+  text-align: right;
+  text-decoration-line: underline;
+  color: $brand-purple;
+}
+
+.to-first-screen {
+  cursor: pointer;
+  padding: calc(0.33 * $index);
+  margin-left: auto;
+  width: calc(1.6 * $index);
+  border-radius: 50%;
+  height: calc(1.6 * $index);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid $brand-purple;
+  svg {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
   }
 }

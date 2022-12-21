@@ -13,8 +13,24 @@ window.addEventListener('load', (e) => {
 });
 
 
-const marquee = document.querySelector('.marquee__wrapper');
 
+const faqSlide = document.querySelector('.faq-slide');
+faqSlide.addEventListener('scroll', (e) => {
+    if (faqSlide.scrollTop < 1) {
+        pageSlider.enable();
+        pageSlider.slidePrev();
+    } else {
+        pageSlider.disable();
+    }
+});
+const translateflyingShape = () => {
+    Object.assign(document.querySelector('.flying-shape').style, {
+        left: `${Math.random() * 60}%`,
+        top: `${Math.random() * 60}%`,
+    })
+}
+
+const marquee = document.querySelector('.marquee__wrapper');
 $('#marquee').marquee({
     startVisible: true,
     duration: 50000,
@@ -54,18 +70,18 @@ const pageSliderPagination = new Swiper('.page-slider_pagination', {
                 swiper.addSlide(index, pagSlide);
             })
 
+        },
+        click(swiper, event) {
+            const clickedSlide = event.target.closest('.swiper-slide');
+            const currentSlideIndex = swiper.slides.findIndex(item => item == clickedSlide);
+            pageSlider.enable();
+            pageSlider.slideTo(currentSlideIndex);
         }
     },
 });
 
-const flyingShape = document.querySelector('.flying-shape');
-const translateflyingShape = () => {
-    Object.assign(flyingShape.style, {
-        left: `${Math.random() * 60}%`,
-        top: `${Math.random() * 60}%`,
-    })
-}
-const pageSlider = new Swiper('.page-slider', {
+
+var pageSlider = new Swiper('.page-slider', {
     modules: [Navigation, Pagination, Mousewheel, Keyboard, Parallax, Manipulation, Thumbs, EffectFade],
     speed: 800,
     wrapperClass: "page-slider__wrapper",
@@ -113,7 +129,6 @@ const pageSlider = new Swiper('.page-slider', {
                 marquee.classList.remove('half-show');
             }
             else {
-                console.log('show');
                 marquee.classList.remove('show');
                 marquee.classList.remove('no-arrow');
                 marquee.classList.add('half-show');
@@ -122,12 +137,22 @@ const pageSlider = new Swiper('.page-slider', {
             pageSliderPagination.slides.forEach(slide => {
                 slide.classList.remove('slide-active');
             });
+
             pageSliderPagination.slides[swiper.realIndex].classList.add('slide-active');
             pageSliderPagination.slideTo(swiper.realIndex);
             translateflyingShape();
+        },
+        slideChangeTransitionStart(slider) {
+            if (slider.slides[slider.realIndex].classList.contains('faq-slide')) {
+                faqSlide.scrollTo(0, 10);
+                setTimeout(() => {
+                    pageSlider.disable();
+                }, 200);
+            }
         }
     }
 });
+
 
 
 //логика работы меню бургер
@@ -150,6 +175,7 @@ document.body.addEventListener('click', (e) => {
     }
 
     if (target.closest('[data-slide-to]')) {
+        pageSlider.enable();
         e.preventDefault();
         const dataSlideId = target.closest('[data-slide-to]').getAttribute('data-slide-to');
         const currentSlide = [...pageSlider.slides].findIndex(slide => slide.getAttribute('data-slide') == dataSlideId);
@@ -161,15 +187,21 @@ document.body.addEventListener('click', (e) => {
     }
 });
 
-
+// Закрытие модалок и меню по нажатию на Esc
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         document.querySelector('[data-open-menu].active')?.classList.remove('active');
         document.querySelector('[data-mega-menu].show')?.classList.remove('show');
         document.querySelector('[data-modal].show')?.classList.remove('show');
     }
-})
+});
 
+
+//Аккардеон секции faq
+$("[data-toggle-elem]").click(function () {
+    $(this).parent().toggleClass('open')
+    $(this).parent().find("[data-toggle-content]").slideToggle("slow");
+});
 
 // Маска на номера телефона
 document.querySelectorAll('input[type="tel"]').forEach(input => {

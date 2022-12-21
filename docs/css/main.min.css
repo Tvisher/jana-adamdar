@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 @font-face {
   font-family: "Montserrat";
   font-display: swap;
@@ -925,8 +927,54 @@ button.swiper-pagination-bullet {
   -ms-user-select: none;
   /* Internet Explorer/Edge */
   user-select: none;
-  /* Non-prefixed version, currently
-                                  not supported by any browser */
+}
+
+/* Стрелки */
+
+::-webkit-scrollbar-button:vertical:start:decrement {
+  background: linear-gradient(120deg, #02141a 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(240deg, #02141a 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(0deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+  background-color: #f6f8f4;
+  display: none;
+}
+
+::-webkit-scrollbar-button:vertical:end:increment {
+  background: linear-gradient(300deg, #02141a 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(60deg, #02141a 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(180deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+  background-color: #f6f8f4;
+  display: none;
+}
+
+::-webkit-scrollbar-button:horizontal:start:decrement {
+  background: linear-gradient(30deg, #02141a 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(150deg, #02141a 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(270deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+  background-color: #f6f8f4;
+  display: none;
+}
+
+::-webkit-scrollbar-button:horizontal:end:increment {
+  background: linear-gradient(210deg, #02141a 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(330deg, #02141a 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(90deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+  background-color: #f6f8f4;
+  display: none;
+}
+
+/* полоса прокрутки (скроллбар) */
+
+::-webkit-scrollbar {
+  width: 2px;
+  /* ширина для вертикального скролла */
+  height: 2px;
+  /* высота для горизонтального скролла */
+  background-color: rgba(194, 194, 194, 0);
+  border-radius: 2px;
+}
+
+/* ползунок скроллбара */
+
+::-webkit-scrollbar-thumb {
+  background-color: #fab748;
+  border-radius: 9em;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #253861;
 }
 
 html {
@@ -1065,7 +1113,7 @@ button {
   height: 100%;
   background-color: #462683;
   width: 100%;
-  z-index: 99;
+  z-index: 100;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -1116,7 +1164,7 @@ button {
 }
 
 .header {
-  z-index: 100;
+  z-index: 101;
   position: fixed;
   left: 0;
   top: 0;
@@ -1192,6 +1240,10 @@ button {
   background-color: #462683;
 }
 
+.orange-text {
+  color: #fab748;
+}
+
 .page-slider,
 .page-slider__wrapper {
   height: 100%;
@@ -1260,21 +1312,21 @@ button {
   align-items: center;
   justify-content: flex-end;
   position: relative;
-  font-size: 10px;
+  font-size: calc(0.33 * (1vw + 1vh));
 }
 
 .page-slider_pagination .slider-pag:after {
   display: block;
   content: "";
-  width: 16px;
-  height: 2px;
+  width: calc(0.49 * (1vw + 1vh));
+  height: calc(0.07 * (1vw + 1vh));
   background: #ffffff;
   border-radius: 2px;
 }
 
 .page-slider_pagination .slider-pag.slide-active {
   opacity: 1;
-  font-size: 14px;
+  font-size: calc(0.49 * (1vw + 1vh));
 }
 
 .page-slider_pagination .slider-pag.slide-active .num {
@@ -1286,8 +1338,8 @@ button {
 }
 
 .page-slider_pagination .slider-pag.slide-active:after {
-  width: 32px;
-  height: 4px;
+  width: calc(0.99 * (1vw + 1vh));
+  height: calc(0.13 * (1vw + 1vh));
 }
 
 .page-slider_pagination .slider-pag .title {
@@ -1445,10 +1497,6 @@ button {
 
 .page-screen[data-slide="2"].swiper-slide-active .page-screen__title {
   opacity: 1;
-}
-
-.page-screen[data-slide="2"].swiper-slide-active .orange-text {
-  color: #fab748;
 }
 
 .page-screen[data-slide="2"].swiper-slide-active .orange-btn {
@@ -2068,7 +2116,7 @@ button {
   left: 0;
   bottom: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 99;
   transition: transform 0.8s ease-in-out;
   background-color: #fff;
   transform: translateY(130%);
@@ -2134,6 +2182,191 @@ button {
 
 .marquee .tagdescr {
   font-weight: 500;
+}
+
+.faq {
+  margin: auto;
+  width: 100%;
+  max-width: calc(31 * (1vw + 1vh));
+}
+
+.faq .page-screen__title {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: calc(3.2 * (1vw + 1vh));
+  line-height: 100%;
+  margin-bottom: calc(2 * (1vw + 1vh));
+  margin-top: calc(0.66 * (1vw + 1vh));
+}
+
+.faq__item {
+  margin-bottom: 10px;
+}
+
+.faq__item .item__body {
+  display: none;
+}
+
+.faq__item .faq__item-wrap {
+  background-color: #462683;
+  border: 1px solid #5a3a97;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: calc(0.66 * (1vw + 1vh));
+  text-align: left;
+  border: 1px solid #5a3a97;
+  transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+}
+
+.faq__item .faq__item-wrap.open {
+  border-color: #fab748;
+  background-color: #5a3a97;
+}
+
+.faq__item .faq__item-wrap.open .item__head::after {
+  transform: rotate(180deg);
+}
+
+.faq__item .item__body {
+  font-weight: 400;
+  font-size: calc(0.55 * (1vw + 1vh));
+  line-height: 140%;
+  padding: calc(1vw + 1vh);
+  padding-top: 0;
+}
+
+.faq__item .item__head {
+  padding: calc(1vw + 1vh);
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.faq__item .item__head::after {
+  transition: transform 0.35s ease-in-out;
+  display: block;
+  content: "";
+  width: calc(0.8 * (1vw + 1vh));
+  height: calc(0.8 * (1vw + 1vh));
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M6.41385 9H17.5858C17.7836 9.00004 17.9769 9.05871 18.1413 9.1686C18.3057 9.27848 18.4339 9.43465 18.5095 9.61734C18.5852 9.80004 18.605 10.0011 18.5664 10.195C18.5279 10.389 18.4327 10.5671 18.2928 10.707L12.7068 16.293C12.5193 16.4805 12.265 16.5858 11.9998 16.5858C11.7347 16.5858 11.4804 16.4805 11.2928 16.293L5.70685 10.707C5.56704 10.5671 5.47183 10.389 5.43327 10.195C5.3947 10.0011 5.4145 9.80004 5.49017 9.61734C5.56584 9.43465 5.69398 9.27848 5.85839 9.1686C6.0228 9.05871 6.2161 9.00004 6.41385 9Z' fill='%23FAB748'/%3e%3c/svg%3e ");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.faq-slide {
+  display: block;
+  padding-top: calc(0.33 * (1vw + 1vh));
+  overflow: auto;
+}
+
+.faq__list {
+  padding-bottom: calc(1.8 * (1vw + 1vh));
+}
+
+.footer {
+  background: #fab748;
+  padding: calc(1vw + 1vh);
+}
+
+.footer__head {
+  margin-bottom: calc(1vw + 1vh);
+  text-transform: uppercase;
+  text-align: left;
+  color: #462683;
+  display: flex;
+  justify-content: flex-start;
+  gap: calc(2 * (1vw + 1vh));
+}
+
+.footer__head .footer__link {
+  color: #462683;
+  font-weight: 700;
+  line-height: 120%;
+  font-size: calc(1.2 * (1vw + 1vh));
+}
+
+.footer__head .footer__descr {
+  font-weight: 500;
+  font-size: calc(0.55 * (1vw + 1vh));
+  line-height: 140%;
+}
+
+.footer__body {
+  padding-bottom: 20px;
+  border-bottom: 2px solid #462683;
+  display: flex;
+  justify-content: space-between;
+  gap: calc(1vw + 1vh);
+}
+
+.footer__body .footer__social {
+  align-items: center;
+  display: flex;
+  gap: calc(0.33 * (1vw + 1vh));
+  font-weight: 700;
+  font-size: calc(0.66 * (1vw + 1vh));
+  text-transform: uppercase;
+}
+
+.footer__body .link {
+  text-decoration: underline;
+}
+
+.footer__body .ico {
+  padding: calc(0.33 * (1vw + 1vh));
+  width: calc(1.2 * (1vw + 1vh));
+  height: calc(1.2 * (1vw + 1vh));
+  background-color: #462683;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__body .ico svg {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.footer__bottom {
+  padding-top: calc(0.33 * (1vw + 1vh));
+  gap: calc(1.5 * (1vw + 1vh));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.privacy {
+  font-weight: 500;
+  font-size: calc(0.55 * (1vw + 1vh));
+  line-height: 140%;
+  text-align: right;
+  text-decoration-line: underline;
+  color: #462683;
+}
+
+.to-first-screen {
+  cursor: pointer;
+  padding: calc(0.33 * (1vw + 1vh));
+  margin-left: auto;
+  width: calc(1.6 * (1vw + 1vh));
+  border-radius: 50%;
+  height: calc(1.6 * (1vw + 1vh));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #462683;
+}
+
+.to-first-screen svg {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
 }
 
 @media screen and (max-width: 768px) {
