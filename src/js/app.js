@@ -87,27 +87,19 @@ var pageSlider = new Swiper('.page-slider', {
     wrapperClass: "page-slider__wrapper",
     slideClass: "page-screen",
     noSwipingClass: 'swiper-no-swiping',
-    // Вертикальный слайдер
     direction: 'vertical',
-    // parallax: true,
-    // Колличество слайдев для показа
     slidesPerView: 'auto',
     effect: 'fade',
     fadeEffect: {
         crossFade: true
     },
     keyboard: {
-        //Вкл/Выкл
         enable: true,
-        //Вкл/Выкл только когда слайдер в пределах вьюпорта
         onlyInViewport: true,
-        //Вкл/Выкл упрапвление клавишами pageUp pageDown
         pageUpDown: true,
     },
     mousewheel: {
-        // Чувствительность колеса мыши
         sensitivity: 1,
-        //Класс обьекта на котором буддет срабатывать прокрутка мышью
         eventsTarget: '.page-slider__wrapper',
     },
     thumbs: {
@@ -137,12 +129,12 @@ var pageSlider = new Swiper('.page-slider', {
             pageSliderPagination.slides.forEach(slide => {
                 slide.classList.remove('slide-active');
             });
-
             pageSliderPagination.slides[swiper.realIndex].classList.add('slide-active');
             pageSliderPagination.slideTo(swiper.realIndex);
             translateflyingShape();
         },
         slideChangeTransitionStart(slider) {
+            // Выключение слайдера при попадании на слайд faq
             if (slider.slides[slider.realIndex].classList.contains('faq-slide')) {
                 faqSlide.scrollTo(0, 10);
                 setTimeout(() => {
@@ -155,28 +147,32 @@ var pageSlider = new Swiper('.page-slider', {
 
 
 
-//логика работы меню бургер
 document.body.addEventListener('click', (e) => {
     const target = e.target;
+    // Открытие и закрытие меню
     if (target.closest('[data-open-menu]')) {
         target.closest('[data-open-menu]').classList.toggle('active');
         document.querySelector('[data-mega-menu]').classList.toggle('show');
     }
 
+    if (target.closest('[data-modal].show') && !target.closest('.lider-modal__content')) {
+        document.querySelector(`[data-modal].show`)?.classList.remove('show');
+    }
+    // Открытие модальных окон
     if (target.closest('[data-open-modal]')) {
         const targetid = target.closest('[data-open-modal]').getAttribute('data-open-modal');
         document.querySelector(`[data-modal="${targetid}"]`)?.classList.add('show');
     }
-
+    // Откытие бегущей строки
     if (target.closest('.marquee-open')) {
-        // target.closest('.marquee-open').classList.toggle('show');
         marquee.classList.toggle('show');
         marquee.classList.toggle('half-show');
     }
 
+    // Кнопки на вигации по слайдам
     if (target.closest('[data-slide-to]')) {
-        pageSlider.enable();
         e.preventDefault();
+        pageSlider.enable();
         const dataSlideId = target.closest('[data-slide-to]').getAttribute('data-slide-to');
         const currentSlide = [...pageSlider.slides].findIndex(slide => slide.getAttribute('data-slide') == dataSlideId);
         pageSlider.slideTo(currentSlide);
