@@ -82,6 +82,7 @@ html {
   font-size: $mainFontSize;
   color: $mainFontColor;
   height: 100%;
+  cursor: url(../img/cursor.png) 0 0, auto;
 }
 
 body {
@@ -166,6 +167,11 @@ li {
 
 @import "./common.scss";
 
+button,
+a {
+  cursor: url(../img/cursor-pointer.png), pointer;
+}
+
 .flying-shape {
   position: absolute;
   left: 0;
@@ -214,7 +220,7 @@ li {
 }
 
 .mega-menu__link {
-  cursor: pointer;
+  cursor: url(../img/cursor-pointer.png), pointer;
   font-weight: 700;
   font-size: calc(1.6 * $index);
   line-height: 100%;
@@ -262,8 +268,9 @@ li {
     }
   }
 }
+
 .company-logo {
-  cursor: pointer;
+  cursor: url(../img/cursor-pointer.png), pointer;
   width: calc(6.33 * $index);
   height: calc(1.73 * $index);
   img {
@@ -274,7 +281,7 @@ li {
 }
 .menu-btn {
   font-size: calc(0.45 * $index);
-  cursor: pointer;
+  cursor: url(../img/cursor-pointer.png), pointer;
   color: #fff;
   gap: calc(0.26 * $index);
   display: flex;
@@ -366,7 +373,7 @@ li {
   right: $index;
   top: calc(4 * $index);
   .slider-pag {
-    cursor: pointer;
+    cursor: url(../img/cursor-pointer.png), pointer;
     line-height: 100%;
     opacity: 0.3;
     gap: 8px;
@@ -560,7 +567,7 @@ li {
   }
 }
 .orange-btn {
-  cursor: pointer;
+  cursor: url(../img/cursor-pointer.png), pointer;
   padding: calc(0.8 * $index) calc(1.6 * $index);
   font-weight: 700;
   font-size: calc(0.8 * $index);
@@ -612,7 +619,7 @@ li {
     height: 100%;
   }
   .play-btn {
-    cursor: pointer;
+    cursor: url(../img/cursor-pointer.png), pointer;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -648,7 +655,7 @@ li {
     gap: calc(1.5 * $index);
   }
   .initiator {
-    cursor: pointer;
+    cursor: url(../img/cursor-pointer.png), pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1003,7 +1010,7 @@ li {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    cursor: pointer;
+    cursor: url(../img/cursor-pointer.png), pointer;
     transition: transform 0.25s ease-in-out;
     transform: scale(1.1);
     &:hover {
@@ -1089,6 +1096,7 @@ li {
   line-height: 100%;
   color: #fff;
   .lang-item {
+    cursor: url(../img/cursor-pointer.png), pointer;
     font-weight: 700;
     color: #ffffff;
     text-transform: uppercase;
@@ -1101,6 +1109,7 @@ li {
     font-size: calc(0.55 * $index);
     line-height: 100%;
     &.active {
+      cursor: url(../img/cursor-pointer.png), pointer;
       opacity: 1;
       color: $brand-primary;
       border-color: $brand-primary;
@@ -1145,7 +1154,7 @@ li {
 .marquee-open {
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out,
     visibility 0.3s ease-in-out;
-  cursor: pointer;
+  cursor: url(../img/cursor-pointer.png), pointer;
   position: absolute;
   left: 50%;
   top: 0;
@@ -1228,7 +1237,7 @@ li {
   }
   .item__head {
     padding: $index;
-    cursor: pointer;
+    cursor: url(../img/cursor-pointer.png), pointer;
     width: 100%;
     display: flex;
     align-items: center;
@@ -1341,7 +1350,7 @@ li {
 }
 
 .to-first-screen {
-  cursor: pointer;
+  cursor: url(../img/cursor-pointer.png), pointer;
   padding: calc(0.33 * $index);
   margin-left: auto;
   width: calc(1.6 * $index);

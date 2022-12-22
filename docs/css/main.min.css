@@ -986,6 +986,7 @@ html {
   font-size: 16px;
   color: #343a45;
   height: 100%;
+  cursor: url(../img/cursor.png) 0 0, auto;
 }
 
 body {
@@ -1089,6 +1090,11 @@ button {
   background-color: transparent;
 }
 
+button,
+a {
+  cursor: url(../img/cursor-pointer.png), pointer;
+}
+
 .flying-shape {
   position: absolute;
   left: 0;
@@ -1139,7 +1145,7 @@ button {
 }
 
 .mega-menu__link {
-  cursor: pointer;
+  cursor: url(../img/cursor-pointer.png), pointer;
   font-weight: 700;
   font-size: calc(1.6 * (1vw + 1vh));
   line-height: 100%;
@@ -1192,7 +1198,7 @@ button {
 }
 
 .company-logo {
-  cursor: pointer;
+  cursor: url(../img/cursor-pointer.png), pointer;
   width: calc(6.33 * (1vw + 1vh));
   height: calc(1.73 * (1vw + 1vh));
 }
@@ -1205,7 +1211,7 @@ button {
 
 .menu-btn {
   font-size: calc(0.45 * (1vw + 1vh));
-  cursor: pointer;
+  cursor: url(../img/cursor-pointer.png), pointer;
   color: #fff;
   gap: calc(0.26 * (1vw + 1vh));
   display: flex;
@@ -1302,7 +1308,7 @@ button {
 }
 
 .page-slider_pagination .slider-pag {
-  cursor: pointer;
+  cursor: url(../img/cursor-pointer.png), pointer;
   line-height: 100%;
   opacity: 0.3;
   gap: 8px;
@@ -1513,7 +1519,7 @@ button {
 }
 
 .orange-btn {
-  cursor: pointer;
+  cursor: url(../img/cursor-pointer.png), pointer;
   padding: calc(0.8 * (1vw + 1vh)) calc(1.6 * (1vw + 1vh));
   font-weight: 700;
   font-size: calc(0.8 * (1vw + 1vh));
@@ -1567,7 +1573,7 @@ button {
 }
 
 .page-screen[data-slide="3"] .play-btn {
-  cursor: pointer;
+  cursor: url(../img/cursor-pointer.png), pointer;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -1608,7 +1614,7 @@ button {
 }
 
 .page-screen[data-slide="3"] .initiator {
-  cursor: pointer;
+  cursor: url(../img/cursor-pointer.png), pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2003,7 +2009,7 @@ button {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  cursor: pointer;
+  cursor: url(../img/cursor-pointer.png), pointer;
   transition: transform 0.25s ease-in-out;
   transform: scale(1.1);
 }
@@ -2098,6 +2104,7 @@ button {
 }
 
 .lang-select .lang-item {
+  cursor: url(../img/cursor-pointer.png), pointer;
   font-weight: 700;
   color: #ffffff;
   text-transform: uppercase;
@@ -2112,6 +2119,7 @@ button {
 }
 
 .lang-select .lang-item.active {
+  cursor: url(../img/cursor-pointer.png), pointer;
   opacity: 1;
   color: #fab748;
   border-color: #fab748;
@@ -2158,7 +2166,7 @@ button {
 
 .marquee-open {
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-  cursor: pointer;
+  cursor: url(../img/cursor-pointer.png), pointer;
   position: absolute;
   left: 50%;
   top: 0;
@@ -2250,7 +2258,7 @@ button {
 
 .faq__item .item__head {
   padding: calc(1vw + 1vh);
-  cursor: pointer;
+  cursor: url(../img/cursor-pointer.png), pointer;
   width: 100%;
   display: flex;
   align-items: center;
@@ -2369,7 +2377,7 @@ button {
 }
 
 .to-first-screen {
-  cursor: pointer;
+  cursor: url(../img/cursor-pointer.png), pointer;
   padding: calc(0.33 * (1vw + 1vh));
   margin-left: auto;
   width: calc(1.6 * (1vw + 1vh));
