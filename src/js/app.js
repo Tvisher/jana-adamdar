@@ -31,12 +31,19 @@ const translateflyingShape = () => {
 }
 
 const marquee = document.querySelector('.marquee__wrapper');
+let computedDuration;
+if (window.innerWidth > 768) {
+    computedDuration = 40000;
+}
+else {
+    computedDuration = 15000;
+};
+
 $('#marquee').marquee({
     startVisible: true,
-    duration: 50000,
+    duration: computedDuration,
     delayBeforeStart: 0,
     direction: 'left',
-    duplicated: true,
 });
 
 
@@ -140,6 +147,10 @@ var pageSlider = new Swiper('.page-slider', {
                 setTimeout(() => {
                     pageSlider.disable();
                 }, 200);
+                document.querySelector('.page-slider_pagination').style.display = 'none';
+            }
+            else {
+                document.querySelector('.page-slider_pagination').style.display = 'block';
             }
         }
     }
