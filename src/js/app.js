@@ -30,6 +30,7 @@ const translateflyingShape = () => {
     })
 }
 
+
 const marquee = document.querySelector('.marquee__wrapper');
 let computedDuration;
 if (window.innerWidth > 768) {
