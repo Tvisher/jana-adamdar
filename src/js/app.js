@@ -18,7 +18,7 @@ const faqSlide = document.querySelector('.faq-slide');
 faqSlide.addEventListener('scroll', (e) => {
     if (faqSlide.scrollTop < 1) {
         pageSlider.enable();
-        pageSlider.slidePrev();
+        // pageSlider.slidePrev();
     } else {
         pageSlider.disable();
     }
