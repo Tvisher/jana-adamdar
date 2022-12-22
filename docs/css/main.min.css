@@ -2258,6 +2258,7 @@ button {
 }
 
 .faq__item .item__head::after {
+  flex-shrink: 0;
   transition: transform 0.35s ease-in-out;
   display: block;
   content: "";
@@ -2673,6 +2674,11 @@ button {
 }
 
 @media (max-width: 768px) {
+  .faq__item .item__head::after {
+    width: calc(1.8 * (1vw + 1vh));
+    height: calc(1.8 * (1vw + 1vh));
+  }
+
   .footer {
     padding: calc(2 * (1vw + 1vh)) calc(1vw + 1vh);
   }
@@ -2809,12 +2815,13 @@ button {
   }
 
   .menu-ball {
-    width: calc(2 * (1vw + 1vh));
-    height: calc(2 * (1vw + 1vh));
+    width: calc(2.5 * (1vw + 1vh));
+    height: calc(2.5 * (1vw + 1vh));
+    gap: calc(0.4 * (1vw + 1vh));
   }
 
   .menu-btn {
-    font-size: calc(1 * (1vw + 1vh));
+    font-size: calc(1.2 * (1vw + 1vh));
   }
 
   .page-slider_pagination .slider-pag.slide-active {
@@ -2873,7 +2880,7 @@ button {
   }
 
   .privacy {
-    font-size: calc(0.85 * (1vw + 1vh));
+    font-size: calc(1 * (1vw + 1vh));
   }
 
   .footer__bottom {
