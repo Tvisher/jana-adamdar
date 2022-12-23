@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sitename</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/main.min.css">
     <script> </script>
 </head>
@@ -53,7 +54,7 @@
                     </div>
                     Прочитать манифест
                 </button>
-                <button class="ghost-btn">
+                <button class="ghost-btn" data-open-form-modal>
                     <div class="ico">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.3333 1.33333H12V1C12 0.734784 11.8946 0.48043 11.7071 0.292893C11.5196 0.105357 11.2652 0 11 0V0C10.7348 0 10.4804 0.105357 10.2929 0.292893C10.1054 0.48043 10 0.734784 10 1V1.33333H6V1C6 0.734784 5.89464 0.48043 5.70711 0.292893C5.51957 0.105357 5.26522 0 5 0V0C4.73478 0 4.48043 0.105357 4.29289 0.292893C4.10536 0.48043 4 0.734784 4 1V1.33333H3.66667C2.69421 1.33333 1.76158 1.71964 1.07394 2.40728C0.386308 3.09491 0 4.02754 0 5L0 12.3333C0 13.3058 0.386308 14.2384 1.07394 14.9261C1.76158 15.6137 2.69421 16 3.66667 16H12.3333C13.3058 16 14.2384 15.6137 14.9261 14.9261C15.6137 14.2384 16 13.3058 16 12.3333V5C16 4.02754 15.6137 3.09491 14.9261 2.40728C14.2384 1.71964 13.3058 1.33333 12.3333 1.33333V1.33333ZM12.3333 14H3.66667C3.22464 14 2.80072 13.8244 2.48816 13.5118C2.17559 13.1993 2 12.7754 2 12.3333V6.66667H14V12.3333C14 12.7754 13.8244 13.1993 13.5118 13.5118C13.1993 13.8244 12.7754 14 12.3333 14Z" fill="white" />
@@ -537,8 +538,6 @@
     <div class="page-slider_pagination swiper-slider unselectable">
         <div class="swiper-wrapper"></div>
     </div>
-
-    <footer> </footer>
     <div class="lider-modal" data-modal="1">
         <div class="lider-modal__content">
             <div class="close-modal" onclick="this.closest('[data-modal]').classList.remove('show')"></div>
@@ -562,7 +561,199 @@
             <div class="lider-modal__text">Основатель Astana Hub. Учился заграницей. Имел возможность построить карьеру в крупнейших корпорациях мира, но предпочёл вернуться на Родину и применить здесь свои навыки и знания. Построил с нуля несколько бизнес-проектов и стал утешных предпринимателем. Считает, что пора выходить за рамки IT-индустрии и начать более масштабные перемены, поэтому вложил существенную часть своих доходов в движение «Новый Казахстан».</div>
         </div>
     </div>
+
+    <div class="form-modal" id="form-modal">
+        <div class="form-modal__close" onclick="this.closest('.show').classList.remove('show')">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.12132 7.00031L13.0003 3.11731C13.2522 2.83107 13.3856 2.45967 13.3734 2.0786C13.3612 1.69753 13.2044 1.3354 12.9348 1.06581C12.6652 0.796215 12.3031 0.639398 11.922 0.627232C11.541 0.615065 11.1696 0.748462 10.8833 1.00031L7.00032 4.87931L3.11032 0.988308C2.97099 0.848976 2.80558 0.738452 2.62353 0.663045C2.44148 0.587639 2.24637 0.548828 2.04932 0.548828C1.85228 0.548828 1.65716 0.587639 1.47511 0.663045C1.29307 0.738452 1.12765 0.848976 0.988321 0.988308C0.848988 1.12764 0.738464 1.29305 0.663058 1.4751C0.587652 1.65715 0.548841 1.85226 0.548841 2.04931C0.548841 2.24635 0.587652 2.44147 0.663058 2.62352C0.738464 2.80556 0.848988 2.97098 0.988321 3.11031L4.87932 7.00031L1.00032 10.8823C0.848194 11.0183 0.725411 11.1839 0.639485 11.369C0.553558 11.554 0.506295 11.7547 0.500587 11.9587C0.494879 12.1626 0.530845 12.3656 0.606286 12.5552C0.681727 12.7448 0.795056 12.917 0.93934 13.0613C1.08362 13.2056 1.25583 13.3189 1.44542 13.3943C1.63501 13.4698 1.83799 13.5058 2.04196 13.5C2.24593 13.4943 2.44659 13.4471 2.63166 13.3611C2.81674 13.2752 2.98233 13.1524 3.11832 13.0003L7.00032 9.12131L10.8783 13.0003C11.1597 13.2817 11.5414 13.4398 11.9393 13.4398C12.3373 13.4398 12.7189 13.2817 13.0003 13.0003C13.2817 12.7189 13.4398 12.3373 13.4398 11.9393C13.4398 11.5414 13.2817 11.1597 13.0003 10.8783L9.12132 7.00031Z" fill="#462683" />
+            </svg>
+        </div>
+        <form action="#" method="post" class="form-modal__content">
+            <span class="form-modal__title">Посетить офлайн встречу</span>
+            <select name="city" id="city-select">
+                <option value="A">Алматы</option>
+                <option value="B">Астана</option>
+                <option value="C">Павлодар</option>
+            </select>
+            <div class="form-modal__res">
+                <span class="form-modal__small-title">Место и дата встречи</span>
+
+                <div class="res-item">
+                    <div class="res-item__head">
+                        <div class="res-item__block">
+                            <span class="nameplate">Название мероприятия</span>
+                            <span class="data">Оффлайн встреча</span>
+                        </div>
+                        <div class="res-item__block">
+                            <span class="nameplate">Дата мероприятия</span>
+                            <span class="data">29.03.2023</span>
+                        </div>
+                        <div class="res-item__block">
+                            <span class="nameplate">Время мероприятия</span>
+                            <span class="data">18:00</span>
+                        </div>
+                    </div>
+                    <div class="res-item__body">
+                        <div class="res-item__map">
+                            <img src="img/map.jpg" alt="">
+                        </div>
+                        <div class="res-item__blocks">
+                            <div class="res-item__block">
+                                <span class="nameplate">Место мероприятия</span>
+                                <span class="data">г. Астана, пр. Кабанбай батыр, 32/1</span>
+                            </div>
+                            <a href="#" class="res-item__block _f">
+                                <div class="ico">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24 12C24 10.5242 23.721 9.11624 23.2328 7.80955C23.1027 12.1079 18.734 15.4369 16.1688 17.64H22.5901C23.4881 15.9572 24 14.0391 24 12ZM19.3578 2.53468C17.3255 0.95105 14.7764 0 11.9993 0C5.37234 0 0 5.37252 0 12C0 18.6275 5.37234 24 11.9993 24C15.0351 24 17.7989 22.8653 19.9109 21.0069H11.223L11.1972 18.4548C16.4317 13.9043 19.641 10.8267 19.641 7.854C19.641 6.74918 19.22 5.35503 17.3269 5.35503C15.8275 5.35503 14.3806 6.22373 14.6428 9.85303H11.5923C10.8286 5.64509 13.1175 2.30293 17.4842 2.30293C18.1598 2.30293 18.7871 2.38455 19.3578 2.53468Z" fill="#6CD145" />
+                                    </svg>
+                                </div>
+                                <span class="data">На карте 2Gis</span>
+                            </a>
+                            <a href="#" class="res-item__block _f">
+                                <div class="ico">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="24" height="24" rx="12" fill="#E02424" />
+                                        <path d="M10.9258 21V15.1605L7.02344 4.6875H8.98516L11.8609 12.7629L15.1691 3H16.9727L12.7293 15.2273V21H10.9258Z" fill="white" />
+                                    </svg>
+                                </div>
+                                <span class="data">На карте Yandex</span>
+                            </a>
+                        </div>
+                    </div>
+                    <label class="res-item__label">
+                        <input type="radio" class="res-item__input" name="place">
+                        <span class="ball"></span>
+                    </label>
+                    <div class="res-item__drop">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.5518 12H23.4478C23.7115 12.0001 23.9692 12.0783 24.1884 12.2248C24.4076 12.3713 24.5785 12.5795 24.6794 12.8231C24.7803 13.0667 24.8067 13.3348 24.7552 13.5934C24.7038 13.852 24.5769 14.0895 24.3905 14.276L16.9425 21.724C16.6924 21.9739 16.3534 22.1144 15.9998 22.1144C15.6462 22.1144 15.3072 21.9739 15.0571 21.724L7.60913 14.276C7.42272 14.0895 7.29578 13.852 7.24435 13.5934C7.19293 13.3348 7.21934 13.0667 7.32023 12.8231C7.42112 12.5795 7.59197 12.3713 7.81119 12.2248C8.0304 12.0783 8.28813 12.0001 8.5518 12Z" fill="#FAB748" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="res-item">
+                    <div class="res-item__head">
+                        <div class="res-item__block">
+                            <span class="nameplate">Название мероприятия</span>
+                            <span class="data">Оффлайн встреча</span>
+                        </div>
+                        <div class="res-item__block">
+                            <span class="nameplate">Дата мероприятия</span>
+                            <span class="data">29.03.2023</span>
+                        </div>
+                        <div class="res-item__block">
+                            <span class="nameplate">Время мероприятия</span>
+                            <span class="data">18:00</span>
+                        </div>
+                    </div>
+                    <div class="res-item__body">
+                        <div class="res-item__map">
+                            <img src="img/map.jpg" alt="">
+                        </div>
+                        <div class="res-item__blocks">
+                            <div class="res-item__block">
+                                <span class="nameplate">Место мероприятия</span>
+                                <span class="data">г. Астана, пр. Кабанбай батыр, 32/1</span>
+                            </div>
+                            <a href="#" class="res-item__block _f">
+                                <div class="ico">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24 12C24 10.5242 23.721 9.11624 23.2328 7.80955C23.1027 12.1079 18.734 15.4369 16.1688 17.64H22.5901C23.4881 15.9572 24 14.0391 24 12ZM19.3578 2.53468C17.3255 0.95105 14.7764 0 11.9993 0C5.37234 0 0 5.37252 0 12C0 18.6275 5.37234 24 11.9993 24C15.0351 24 17.7989 22.8653 19.9109 21.0069H11.223L11.1972 18.4548C16.4317 13.9043 19.641 10.8267 19.641 7.854C19.641 6.74918 19.22 5.35503 17.3269 5.35503C15.8275 5.35503 14.3806 6.22373 14.6428 9.85303H11.5923C10.8286 5.64509 13.1175 2.30293 17.4842 2.30293C18.1598 2.30293 18.7871 2.38455 19.3578 2.53468Z" fill="#6CD145" />
+                                    </svg>
+                                </div>
+                                <span class="data">На карте 2Gis</span>
+                            </a>
+                            <a href="#" class="res-item__block _f">
+                                <div class="ico">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="24" height="24" rx="12" fill="#E02424" />
+                                        <path d="M10.9258 21V15.1605L7.02344 4.6875H8.98516L11.8609 12.7629L15.1691 3H16.9727L12.7293 15.2273V21H10.9258Z" fill="white" />
+                                    </svg>
+                                </div>
+                                <span class="data">На карте Yandex</span>
+                            </a>
+                        </div>
+                    </div>
+                    <label class="res-item__label">
+                        <input type="radio" class="res-item__input" name="place">
+                        <span class="ball"></span>
+                    </label>
+                    <div class="res-item__drop">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.5518 12H23.4478C23.7115 12.0001 23.9692 12.0783 24.1884 12.2248C24.4076 12.3713 24.5785 12.5795 24.6794 12.8231C24.7803 13.0667 24.8067 13.3348 24.7552 13.5934C24.7038 13.852 24.5769 14.0895 24.3905 14.276L16.9425 21.724C16.6924 21.9739 16.3534 22.1144 15.9998 22.1144C15.6462 22.1144 15.3072 21.9739 15.0571 21.724L7.60913 14.276C7.42272 14.0895 7.29578 13.852 7.24435 13.5934C7.19293 13.3348 7.21934 13.0667 7.32023 12.8231C7.42112 12.5795 7.59197 12.3713 7.81119 12.2248C8.0304 12.0783 8.28813 12.0001 8.5518 12Z" fill="#FAB748" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="res-item">
+                    <div class="res-item__head">
+                        <div class="res-item__block">
+                            <span class="nameplate">Название мероприятия</span>
+                            <span class="data">Оффлайн встреча</span>
+                        </div>
+                        <div class="res-item__block">
+                            <span class="nameplate">Дата мероприятия</span>
+                            <span class="data">29.03.2023</span>
+                        </div>
+                        <div class="res-item__block">
+                            <span class="nameplate">Время мероприятия</span>
+                            <span class="data">18:00</span>
+                        </div>
+                    </div>
+                    <div class="res-item__body">
+                        <div class="res-item__map">
+                            <img src="img/map.jpg" alt="">
+                        </div>
+                        <div class="res-item__blocks">
+                            <div class="res-item__block">
+                                <span class="nameplate">Место мероприятия</span>
+                                <span class="data">г. Астана, пр. Кабанбай батыр, 32/1</span>
+                            </div>
+                            <a href="#" class="res-item__block _f">
+                                <div class="ico">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24 12C24 10.5242 23.721 9.11624 23.2328 7.80955C23.1027 12.1079 18.734 15.4369 16.1688 17.64H22.5901C23.4881 15.9572 24 14.0391 24 12ZM19.3578 2.53468C17.3255 0.95105 14.7764 0 11.9993 0C5.37234 0 0 5.37252 0 12C0 18.6275 5.37234 24 11.9993 24C15.0351 24 17.7989 22.8653 19.9109 21.0069H11.223L11.1972 18.4548C16.4317 13.9043 19.641 10.8267 19.641 7.854C19.641 6.74918 19.22 5.35503 17.3269 5.35503C15.8275 5.35503 14.3806 6.22373 14.6428 9.85303H11.5923C10.8286 5.64509 13.1175 2.30293 17.4842 2.30293C18.1598 2.30293 18.7871 2.38455 19.3578 2.53468Z" fill="#6CD145" />
+                                    </svg>
+                                </div>
+                                <span class="data">На карте 2Gis</span>
+                            </a>
+                            <a href="#" class="res-item__block _f">
+                                <div class="ico">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="24" height="24" rx="12" fill="#E02424" />
+                                        <path d="M10.9258 21V15.1605L7.02344 4.6875H8.98516L11.8609 12.7629L15.1691 3H16.9727L12.7293 15.2273V21H10.9258Z" fill="white" />
+                                    </svg>
+                                </div>
+                                <span class="data">На карте Yandex</span>
+                            </a>
+                        </div>
+                    </div>
+                    <label class="res-item__label">
+                        <input type="radio" class="res-item__input" name="place">
+                        <span class="ball"></span>
+                    </label>
+                    <div class="res-item__drop">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.5518 12H23.4478C23.7115 12.0001 23.9692 12.0783 24.1884 12.2248C24.4076 12.3713 24.5785 12.5795 24.6794 12.8231C24.7803 13.0667 24.8067 13.3348 24.7552 13.5934C24.7038 13.852 24.5769 14.0895 24.3905 14.276L16.9425 21.724C16.6924 21.9739 16.3534 22.1144 15.9998 22.1144C15.6462 22.1144 15.3072 21.9739 15.0571 21.724L7.60913 14.276C7.42272 14.0895 7.29578 13.852 7.24435 13.5934C7.19293 13.3348 7.21934 13.0667 7.32023 12.8231C7.42112 12.5795 7.59197 12.3713 7.81119 12.2248C8.0304 12.0783 8.28813 12.0001 8.5518 12Z" fill="#FAB748" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="user-data">
+                <div class="form-modal__small-title">Ваши данные</div>
+                <input type="text" name="name" placeholder="Фамилия и имя" class="user-data-field">
+                <input type="tel" name="phone" class="user-data-field">
+                <div class="user-data__footer">
+                    <input type="submit" class="submit-btn">
+                    <span>* Заявку необходимо будет подтвердить по смс</span>
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
+
 <script src="./js/app.min.js"></script>
 
 </html>

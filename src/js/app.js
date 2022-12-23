@@ -181,6 +181,10 @@ document.body.addEventListener('click', (e) => {
         marquee.classList.toggle('half-show');
     }
 
+    if (target.closest('[data-open-form-modal]')) {
+        document.querySelector('#form-modal')?.classList.add('show');
+    }
+
     // Кнопки на вигации по слайдам
     if (target.closest('[data-slide-to]')) {
         e.preventDefault();
@@ -214,9 +218,36 @@ $("[data-toggle-elem]").click(function () {
 // Маска на номера телефона
 document.querySelectorAll('input[type="tel"]').forEach(input => {
     const mask = IMask(input, {
-        mask: '+{7}(000) 000-00-00'
+        mask: '+{7}(000) 000-00-00',
+        lazy: false,
+        placeholderChar: 'X'
     });
 });
+
+
+
+$(document).ready(function () {
+    $('#city-select').select2({
+        minimumResultsForSearch: -1,
+    });
+});
+
+
+
+
+(function () {
+    $(".res-item__drop").click(function () {
+        $(this).parent().toggleClass('open')
+        $(this).parent().find(".res-item__body").slideToggle("slow");
+    });
+
+    document.querySelectorAll('.res-item__input').forEach(input => {
+        input.addEventListener('change', (e) => {
+            document.querySelector('.res-item.selected')?.classList.remove('selected');
+            e.target.closest('.res-item')?.classList.add('selected');
+        });
+    });
+})()
 
 
 
