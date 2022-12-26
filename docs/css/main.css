@@ -1687,11 +1687,6 @@ a {
   align-items: center;
   justify-content: center;
   color: #fff;
-  transition-delay: 0s !important;
-}
-
-.page-screen.swiper-slide-active {
-  transition-delay: 0.5s !important;
 }
 
 .ico {
