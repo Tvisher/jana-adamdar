@@ -8,9 +8,7 @@ import IMask from 'imask';
 // Проверка поддержки webP
 baseFunction.testWebP();
 
-window.addEventListener('load', (e) => {
-    document.body.style.opacity = 1;
-});
+
 
 
 
@@ -98,6 +96,7 @@ var pageSlider = new Swiper('.page-slider', {
     direction: 'vertical',
     slidesPerView: 'auto',
     effect: 'fade',
+    init: false,
     fadeEffect: {
         crossFade: true
     },
@@ -158,37 +157,80 @@ var pageSlider = new Swiper('.page-slider', {
 });
 
 
+var modalSlider = new Swiper('.modal-slider', {
+    modules: [Mousewheel, Keyboard],
+    speed: 1200,
+    keyboard: {
+        enable: true,
+        onlyInViewport: true,
+        pageUpDown: true,
+    },
+    mousewheel: {
+        sensitivity: 1,
+    },
+    on: {
+        slideChange(swiper) {
+            const currentSlide = swiper.slides[swiper.activeIndex];
+            if (currentSlide.classList.contains('orange')) {
+                document.body.classList.add('orange')
+            } else {
+                document.body.classList.remove('orange')
+            }
+        }
+    }
 
+});
+
+
+// preloader
+const preloader = document.querySelector('#preloader.show');
+if (preloader) {
+    const preloaderSvg = preloader.querySelector('svg');
+    preloaderSvg.classList.add('active');
+    setTimeout(() => {
+        preloader.classList.remove('show');
+        pageSlider.init();
+    }, 3500);
+}
+
+
+
+// Отработка кликов в документе
 document.body.addEventListener('click', (e) => {
     const target = e.target;
     // Открытие и закрытие меню
     if (target.closest('[data-open-menu]')) {
         target.closest('[data-open-menu]').classList.toggle('active');
         document.querySelector('[data-mega-menu]').classList.toggle('show');
+        document.body.classList.toggle('open-menu');
     }
-
+    // Закрытие модалки при клике вне контента
     if (target.closest('[data-modal].show') && !target.closest('.lider-modal__content')) {
         document.querySelector(`[data-modal].show`)?.classList.remove('show');
+        cleanBodyClasses();
     }
     // Открытие модальных окон
     if (target.closest('[data-open-modal]')) {
         const targetid = target.closest('[data-open-modal]').getAttribute('data-open-modal');
         document.querySelector(`[data-modal="${targetid}"]`)?.classList.add('show');
+        cleanBodyClasses();
     }
     // Откытие бегущей строки
     if (target.closest('.marquee-open')) {
         marquee.classList.toggle('show');
         marquee.classList.toggle('half-show');
     }
-
+    // Открытие модального окна с формой
     if (target.closest('[data-open-form-modal]')) {
         document.querySelector('#form-modal')?.classList.add('show');
+        cleanBodyClasses();
     }
 
-    // Кнопки на вигации по слайдам
+    // Кнопки навигации по слайдам
     if (target.closest('[data-slide-to]')) {
         e.preventDefault();
         pageSlider.enable();
+        cleanBodyClasses();
         const dataSlideId = target.closest('[data-slide-to]').getAttribute('data-slide-to');
         const currentSlide = [...pageSlider.slides].findIndex(slide => slide.getAttribute('data-slide') == dataSlideId);
         pageSlider.slideTo(currentSlide);
@@ -196,6 +238,19 @@ document.body.addEventListener('click', (e) => {
             document.querySelector('[data-open-menu]')?.classList.remove('active');
             document.querySelector('[data-mega-menu]')?.classList.remove('show');
         }, 400);
+    }
+
+    // Закрытие модально окна по кнопке
+    if (target.closest('.form-modal__close')) {
+        const closeBtn = target.closest('.form-modal__close');
+        closeBtn.closest('.show').classList.remove('show');
+        cleanBodyClasses();
+    }
+
+    // Открытие манифеста по лику на кнопку
+    if (target.closest('#open-text-war')) {
+        document.querySelector('.modal-slider').classList.add('show');
+        document.body.classList.add('manifest');
     }
 });
 
@@ -207,6 +262,17 @@ document.addEventListener('keydown', (e) => {
         document.querySelector('[data-modal].show')?.classList.remove('show');
     }
 });
+
+
+// Фукция для сброса классов с тега body
+function cleanBodyClasses() {
+    document.body.classList.remove('manifest');
+    document.body.classList.remove('orange');
+    document.querySelector('.modal-slider').classList.remove('show');
+    setTimeout(() => {
+        modalSlider.slideTo(0);
+    }, 350);
+};
 
 
 //Аккардеон секции faq
@@ -234,7 +300,7 @@ $(document).ready(function () {
 
 
 
-
+// Карточки для модального окна с мероприятием
 (function () {
     $(".res-item__drop").click(function () {
         $(this).parent().toggleClass('open')
@@ -247,9 +313,4 @@ $(document).ready(function () {
             e.target.closest('.res-item')?.classList.add('selected');
         });
     });
-})()
-
-
-
-
-
+})();
