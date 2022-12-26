@@ -92,8 +92,8 @@ var pageSlider = new Swiper('.page-slider', {
     noSwipingClass: 'swiper-no-swiping',
     direction: 'vertical',
     slidesPerView: 'auto',
-    effect: 'fade',
     init: false,
+    effect: 'fade',
     fadeEffect: {
         crossFade: true
     },
@@ -155,7 +155,12 @@ var pageSlider = new Swiper('.page-slider', {
 
 
 var modalSlider = new Swiper('.modal-slider', {
-    modules: [Mousewheel, Keyboard],
+    modules: [Mousewheel, Keyboard, EffectFade],
+    effect: 'fade',
+    fadeEffect: {
+        crossFade: true
+    },
+    direction: 'vertical',
     speed: 1200,
     keyboard: {
         enable: true,
