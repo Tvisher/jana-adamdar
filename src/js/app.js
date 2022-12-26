@@ -9,14 +9,10 @@ import IMask from 'imask';
 baseFunction.testWebP();
 
 
-
-
-
 const faqSlide = document.querySelector('.faq-slide');
 faqSlide.addEventListener('scroll', (e) => {
     if (faqSlide.scrollTop < 1) {
         pageSlider.enable();
-        // pageSlider.slidePrev();
     } else {
         pageSlider.disable();
     }
@@ -190,9 +186,19 @@ if (preloader) {
     preloaderSvg.classList.add('active');
     setTimeout(() => {
         preloader.classList.remove('show');
-        pageSlider.init();
+        // pageSlider.init();
     }, 3500);
 }
+
+document.querySelectorAll('[data-lang-select]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        document.querySelector('.lang-selection').classList.remove('show');
+        setTimeout(() => {
+            pageSlider.init();
+        }, 200);
+    });
+})
+
 
 
 
