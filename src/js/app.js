@@ -43,6 +43,7 @@ $('#marquee').marquee({
     duration: computedDuration,
     delayBeforeStart: 0,
     direction: 'left',
+    duplicated: true,
 });
 
 
