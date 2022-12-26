@@ -4,6 +4,8 @@
 @import "utils/vars";
 @import "vendors/vendors";
 
+@import "preloader";
+
 .unselectable {
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -99,8 +101,8 @@ body {
   margin: 0;
   padding: 0;
   background-color: $brand-purple;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  // opacity: 0;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
 
   &.hidden {
     overflow: hidden;
@@ -182,7 +184,8 @@ a {
   filter: blur(250px);
   -webkit-filter: blur(250px);
   border-radius: 50%;
-  transition: left 1.2s ease-in-out 0.5s, top 1.2s ease-in-out 0.5s;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out,
+    left 1.2s ease-in-out 0.5s, top 1.2s ease-in-out 0.5s;
 }
 
 .mega-menu {
@@ -289,6 +292,10 @@ a {
   align-items: center;
   &.active {
     .menu-ball {
+      background-color: $brand-primary;
+      span {
+        background-color: $brand-purple;
+      }
       background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M6.41552 5.00021L9.00152 2.41154C9.16941 2.22071 9.25835 1.97311 9.25023 1.71907C9.24212 1.46502 9.13758 1.2236 8.95785 1.04387C8.77812 0.864143 8.5367 0.759599 8.28265 0.751488C8.02861 0.743377 7.78101 0.832308 7.59018 1.00021L5.00152 3.58621L2.40818 0.992206C2.31529 0.899317 2.20502 0.825634 2.08366 0.775364C1.96229 0.725093 1.83221 0.699219 1.70085 0.699219C1.56949 0.699219 1.43941 0.725093 1.31804 0.775364C1.19668 0.825634 1.0864 0.899317 0.993516 0.992206C0.900628 1.08509 0.826945 1.19537 0.776674 1.31673C0.726403 1.4381 0.700529 1.56817 0.700529 1.69954C0.700529 1.8309 0.726403 1.96098 0.776674 2.08234C0.826945 2.20371 0.900628 2.31398 0.993516 2.40687L3.58752 5.00021L1.00152 7.5882C0.900098 7.67886 0.818243 7.78926 0.760958 7.91264C0.703674 8.03603 0.672166 8.1698 0.66836 8.30578C0.664555 8.44176 0.688532 8.57708 0.738826 8.70347C0.78912 8.82987 0.864673 8.94467 0.960862 9.04086C1.05705 9.13705 1.17185 9.2126 1.29825 9.26289C1.42464 9.31319 1.55997 9.33717 1.69594 9.33336C1.83192 9.32956 1.9657 9.29805 2.08908 9.24076C2.21246 9.18348 2.32286 9.10162 2.41352 9.0002L5.00152 6.41421L7.58685 9.0002C7.77445 9.1878 8.02888 9.29319 8.29418 9.29319C8.55948 9.29319 8.81392 9.1878 9.00152 9.0002C9.18911 8.81261 9.2945 8.55817 9.2945 8.29287C9.2945 8.02757 9.18911 7.77313 9.00152 7.58554L6.41552 5.00021Z' fill='%23462683'/%3e%3c/svg%3e ");
       background-repeat: no-repeat;
       background-position: center;
@@ -330,6 +337,7 @@ a {
   position: relative;
   height: calc(100% - calc(2.73 * $index));
   margin-top: auto;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
 .page-screen {
@@ -356,7 +364,7 @@ a {
 }
 
 .main-container {
-  background: url(../img/arnament.svg) no-repeat center center;
+  background: url(../img/ornament.svg) no-repeat center center;
   background-color: $brand-purple;
   // background-attachment: fixed;
   background-size: auto 100%;
@@ -367,6 +375,7 @@ a {
 }
 
 .page-slider_pagination {
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
   overflow: hidden;
   height: calc(4.5 * $index);
   position: absolute;
@@ -2041,7 +2050,7 @@ a {
   justify-content: center;
   .res-item__input {
     z-index: 2;
-    cursor: pointer;
+    cursor: url(../img/cursor-pointer.png), pointer;
     position: absolute;
     left: 0;
     top: 0;
@@ -2062,7 +2071,7 @@ a {
 }
 
 .res-item__drop {
-  cursor: pointer;
+  cursor: url(../img/cursor-pointer.png), pointer;
   position: absolute;
   right: 30px;
   top: 30px;
@@ -2079,7 +2088,12 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  cursor: url(../img/cursor-pointer.png), pointer;
+  box-shadow: 0px 0px 24px rgba(250, 183, 72, 0);
+  transition: box-shadow 0.25s ease-in-out;
+  &:hover {
+    box-shadow: 0px 0px 24px rgba(250, 183, 72, 0.64);
+  }
 }
 
 .user-data-field {
@@ -2094,7 +2108,7 @@ a {
 }
 
 .submit-btn {
-  cursor: pointer;
+  cursor: url(../img/cursor-pointer.png), pointer;
   padding: 16px 32px;
   font-weight: 700;
   font-size: 16px;
@@ -2110,4 +2124,137 @@ a {
   color: #fff;
   font-size: 14px;
   gap: 10px;
+}
+
+.modal-slider {
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
+  opacity: 0;
+  visibility: hidden;
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: calc(100% - 2.73 * (1vw + 1vh));
+  z-index: 50;
+
+  .modal-slide {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px calc(10.5 * $index);
+    &.orange {
+      .modal-slide__text,
+      .modal-slide__title {
+        color: $brand-purple;
+      }
+    }
+  }
+  .modal-slide__title {
+    font-size: calc(2.13 * $index);
+    font-weight: 700;
+    line-height: 100%;
+    margin-bottom: calc(0.5 * $index);
+    &._large {
+      font-size: calc(3.2 * $index);
+    }
+  }
+  .modal-slide__text {
+    font-size: calc(1.33 * $index);
+    margin-bottom: $index;
+    font-weight: 400;
+    line-height: 140%;
+    &._large {
+      font-size: calc(2.13 * $index);
+    }
+  }
+  .orange-selection {
+    font-weight: 700;
+    color: $brand-primary;
+    display: inline;
+  }
+
+  .form-modal__close {
+    z-index: 10;
+  }
+}
+
+.rev {
+  display: none;
+}
+
+body {
+  &.manifest {
+    .page-slider,
+    .page-slider_pagination,
+    .flying-shape {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  &.orange {
+    .rev {
+      display: block;
+    }
+    .no-rev {
+      display: none;
+    }
+    background-color: $brand-primary;
+    .page-slider {
+      opacity: 0;
+    }
+    .menu-ball {
+      background-color: $brand-purple;
+      span {
+        background-color: $brand-primary;
+      }
+    }
+    .form-modal__close {
+      border: 2px solid $brand-purple;
+    }
+  }
+  &.open-menu {
+    .rev {
+      display: none;
+    }
+    .no-rev {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .form-modal__close {
+    width: 32px;
+    height: 32px;
+    right: $index;
+    top: 20px;
+  }
+  .res-item__block .data {
+    font-size: 14px;
+  }
+  .res-item__block .nameplate {
+    font-size: 9px;
+  }
+  .user-data__footer {
+    flex-direction: column;
+  }
+
+  .modal-slider {
+    .form-modal__close {
+      top: 40px;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .modal-slider .modal-slide {
+    padding: 0px calc(2 * $index);
+  }
 }
