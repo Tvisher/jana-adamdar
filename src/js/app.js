@@ -250,6 +250,10 @@ document.body.addEventListener('click', (e) => {
         const dataSlideId = target.closest('[data-slide-to]').getAttribute('data-slide-to');
         const currentSlide = [...pageSlider.slides].findIndex(slide => slide.getAttribute('data-slide') == dataSlideId);
         pageSlider.slideTo(currentSlide);
+        if (target.closest('[data-slide-to]').hasAttribute('data-contacts')) {
+            const faqSection = document.querySelector('.footer');
+            faqSection.scrollIntoView({ block: "end", behavior: "auto" });
+        }
         setTimeout(() => {
             document.querySelector('[data-open-menu]')?.classList.remove('active');
             document.querySelector('[data-mega-menu]')?.classList.remove('show');

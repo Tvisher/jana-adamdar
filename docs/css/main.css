@@ -3685,6 +3685,10 @@ body.open-menu .no-rev {
 }
 
 @media (max-width: 768px) {
+  .footer__head .footer__descr {
+    font-size: calc(1 * (1vw + 1vh));
+  }
+
   .faq__item .item__head::after {
     width: calc(1.8 * (1vw + 1vh));
     height: calc(1.8 * (1vw + 1vh));
