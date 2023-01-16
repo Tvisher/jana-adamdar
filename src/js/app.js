@@ -87,11 +87,15 @@ const pageSliderPagination = new Swiper('.page-slider_pagination', {
 var pageSlider = new Swiper('.page-slider', {
     modules: [Navigation, Pagination, Mousewheel, Keyboard, Parallax, Manipulation, Thumbs, EffectFade],
     speed: 800,
+    longSwipes: false,
+    simulateTouch: false,
     wrapperClass: "page-slider__wrapper",
     slideClass: "page-screen",
     noSwipingClass: 'swiper-no-swiping',
     direction: 'vertical',
-    slidesPerView: 'auto',
+    slidesPerView: 1,
+    slidesPerGroup: 1,
+    slidesPerGroupSkip: 1,
     init: false,
     effect: 'fade',
     fadeEffect: {
@@ -160,7 +164,6 @@ var modalSlider = new Swiper('.modal-slider', {
     fadeEffect: {
         crossFade: true
     },
-    direction: 'vertical',
     speed: 1200,
     keyboard: {
         enable: true,
@@ -260,9 +263,11 @@ document.body.addEventListener('click', (e) => {
     }
 
     // Открытие манифеста по лику на кнопку
-    if (target.closest('#open-text-war')) {
-        document.querySelector('.modal-slider').classList.add('show');
+    if (target.closest('[data-id="open-text-war"]')) {
         document.body.classList.add('manifest');
+        document.querySelector('[data-mega-menu].show')?.classList.remove('show');
+        document.querySelector('[data-open-menu].active')?.classList.remove('active');
+        document.querySelector('.modal-slider').classList.add('show');
     }
 });
 
