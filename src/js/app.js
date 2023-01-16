@@ -161,6 +161,7 @@ var pageSlider = new Swiper('.page-slider', {
 var modalSlider = new Swiper('.modal-slider', {
     modules: [Mousewheel, Keyboard, EffectFade],
     effect: 'fade',
+    direction: 'vertical',
     fadeEffect: {
         crossFade: true
     },

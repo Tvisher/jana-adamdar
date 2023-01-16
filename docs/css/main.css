@@ -2679,12 +2679,10 @@ a {
 .marquee .tagname {
   text-transform: uppercase;
   font-weight: 700;
-  line-height: 100%;
 }
 
 .marquee .tagdescr {
   font-weight: 500;
-  line-height: 100%;
 }
 
 .faq {
@@ -3198,6 +3196,7 @@ a {
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -3207,6 +3206,7 @@ a {
 }
 
 .modal-slider.show {
+  pointer-events: all;
   opacity: 1;
   visibility: visible;
 }
@@ -3970,7 +3970,7 @@ body.open-menu .no-rev {
 
   .page-screen__img.is-mobile {
     width: calc(18 * (1vw + 1vh));
-    height: calc(17 * (1vw + 1vh));
+    height: calc(16 * (1vw + 1vh));
     margin: calc(1 * (1vw + 1vh)) auto;
   }
 

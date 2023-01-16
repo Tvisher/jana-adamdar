@@ -1226,11 +1226,9 @@ a {
   .tagname {
     text-transform: uppercase;
     font-weight: 700;
-    line-height: 100%;
   }
   .tagdescr {
     font-weight: 500;
-    line-height: 100%;
   }
 }
 
@@ -1858,7 +1856,7 @@ a {
 
   .page-screen__img.is-mobile {
     width: calc(18 * (1vw + 1vh));
-    height: calc(17 * (1vw + 1vh));
+    height: calc(16 * (1vw + 1vh));
     margin: calc(1 * (1vw + 1vh)) auto;
   }
   .page-screen[data-slide="5"] .page-screen__content::after,
@@ -2171,7 +2169,9 @@ a {
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   &.show {
+    pointer-events: all;
     opacity: 1;
     visibility: visible;
   }
