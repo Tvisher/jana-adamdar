@@ -1531,6 +1531,60 @@ a {
   cursor: pointer;
 }
 
+.scroll-down {
+  transform: translateX(-50%);
+  display: flex;
+  position: absolute;
+  left: 50%;
+  bottom: calc(1 * (1vw + 1vh));
+  align-items: center;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: calc(0.65 * (1vw + 1vh));
+  line-height: 120%;
+  gap: calc(0.33 * (1vw + 1vh));
+}
+
+.scroll-down .ball {
+  width: calc(1.6 * (1vw + 1vh));
+  height: calc(1.6 * (1vw + 1vh));
+  background: #fab748;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.scroll-down .ball svg {
+  width: 55%;
+  height: 55%;
+  object-fit: contain;
+  animation: bounce 2s linear infinite 0s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-3px);
+  }
+
+  25% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(3px);
+  }
+
+  75% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-3px);
+  }
+}
+
 .flying-shape {
   position: absolute;
   left: 0;
@@ -3622,6 +3676,15 @@ body.open-menu .no-rev {
 }
 
 @media (max-width: 992px) {
+  .scroll-down {
+    font-size: calc(1 * (1vw + 1vh));
+  }
+
+  .scroll-down .ball {
+    width: calc(2.2 * (1vw + 1vh));
+    height: calc(2.2 * (1vw + 1vh));
+  }
+
   .faq__item .item__body {
     font-size: calc(0.8 * (1vw + 1vh));
   }
